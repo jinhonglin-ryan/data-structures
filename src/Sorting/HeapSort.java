@@ -1,5 +1,7 @@
 package Sorting;
 
+import java.util.Arrays;
+
 public class HeapSort {
   private static Integer[] sample1() {
     return new Integer[]{2,12,3,23,1,23,123,12,3,4,89};
@@ -12,18 +14,12 @@ public class HeapSort {
     Integer[] new_data = indexShift(data);
 
     System.out.println("Before:");
-    for (int i = 1; i < new_data.length; i++) {
-      System.out.print(new_data[i] + " ");
-    }
-    System.out.println();
+    System.out.println("Output: " + Arrays.toString(new_data));
 
     heapSort(new_data);
 
     System.out.println("After:");
-    for (int i = 1; i < new_data.length; i++) {
-      System.out.print(new_data[i] + " ");
-    }
-    System.out.println();
+    System.out.println("Output: " + Arrays.toString(new_data));
   }
 
 
