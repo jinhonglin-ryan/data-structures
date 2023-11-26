@@ -1,6 +1,8 @@
 package Sorting;
 
 import java.util.Arrays;
+// runtime: O(nlgn): division of sequence is O(lgn), merge is O(n) [k * O(n/k) = O(n)]
+// can be optimized to O(n) when given sorted array
 
 public class MergeSort {
   public static void main(String[] args) {
@@ -29,7 +31,15 @@ public class MergeSort {
     int mid = (left + right) / 2;
     mergeSort(arr, left, mid); // sort left half: left...mid-1 is sorted
     mergeSort(arr, mid, right); // sort right half: mid ... right-1 is sorted
-    merge(arr, left, mid, right);
+    // strategy to make runtime O(n) for a sorted array:
+    // 因为如果arr[mid-1] <= arr[mid]，就没必要merge, 直接并在一起就可以
+    // 对于一个sorted array，我们分到最后一层，有n个subarray，我们要把他合并到n/2, n/4, ..., 1个array
+    // 对于n个subarray，我们需要做n/2次比较，发现每次都是arr[mid - 1] <= arr[mid], 所以escape merging
+    // 然后获得了n/2个subarray, 继续做n/4次比较，发现同样的事，escape merging, 获得n/4个subarray
+    // 所以总共：我们需要做n/2 + n/4 + ... + 1 次比较，sum to O(n) 所以runtime是O(n)
+    if (arr[mid - 1] > arr[mid]) { // escape comparision
+      merge(arr, left, mid, right);
+    }
   }
 
   // Pre:
