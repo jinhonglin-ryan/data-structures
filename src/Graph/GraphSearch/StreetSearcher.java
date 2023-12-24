@@ -1,5 +1,6 @@
-package Graph;
+package Graph.GraphSearch;
 
+import Graph.*;
 import Graph.exceptions.InsertionException;
 
 import java.io.File;

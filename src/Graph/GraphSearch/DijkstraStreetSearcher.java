@@ -1,6 +1,7 @@
-package Graph;
+package Graph.GraphSearch;
 
 
+import Graph.*;
 import java.util.*;
 
 
@@ -55,7 +56,7 @@ public class DijkstraStreetSearcher extends StreetSearcher {
   }
 
   private double dijkstraAlgorithm(Vertex<String> start, Vertex<String> end, Map<Vertex<String>, Double> distance,
-                                Map<Vertex<String>, Boolean> explored, PriorityQueue<Vertex<String>> pq) {
+                                   Map<Vertex<String>, Boolean> explored, PriorityQueue<Vertex<String>> pq) {
     pq.add(start);
     while (!pq.isEmpty()) {
       Vertex<String> curr = pq.poll(); // get the shortest distance vertex
