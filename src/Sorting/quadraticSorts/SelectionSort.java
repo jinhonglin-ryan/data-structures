@@ -1,4 +1,4 @@
-package Sorting;
+package Sorting.quadraticSorts;
 
 public class SelectionSort {
   public static void selectionSort(int[] arr) {

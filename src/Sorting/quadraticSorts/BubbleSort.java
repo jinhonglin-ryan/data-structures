@@ -1,4 +1,4 @@
-package Sorting;
+package Sorting.quadraticSorts;
 
 public class BubbleSort {
   public static void bubbleSort(int[] arr) {
